@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Assistant — Owensonic Infinity</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    :root {
+    :root{
       --bg:#05060a;
       --bg2:#0b0f1a;
       --neon:#00ffe0;
@@ -17,10 +18,9 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
-      background:radial-gradient(1200px 600px at 10% -10%,#0d1430 0%,transparent 40%),radial-gradient(900px 500px at 90% 10%,#0a2b2a 0%,transparent 45%),linear-gradient(180deg,var(--bg),var(--bg2));
+      font-family:Inter,system-ui,sans-serif;
+      background:linear-gradient(180deg,var(--bg),var(--bg2));
       color:var(--text);
-      overflow-x:hidden;
     }
     nav{
       position:fixed;
@@ -29,97 +29,74 @@
       justify-content:space-between;
       align-items:center;
       padding:18px 32px;
-      background:rgba(5,6,10,0.65);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(255,255,255,0.06);
-      z-index:1000;
+      background:rgba(5,6,10,.8);
+      backdrop-filter:blur(10px);
     }
     nav .brand{
       font-family:Orbitron;
       font-weight:800;
-      letter-spacing:1.2px;
       color:var(--neon);
     }
     nav a{
       color:var(--text);
       text-decoration:none;
-      margin-left:28px;
-      font-size:14px;
-      opacity:.9;
+      margin-left:24px;
     }
     nav a:hover{color:var(--neon)}
+
     header{
       min-height:100vh;
       display:flex;
+      flex-direction:column;
       align-items:center;
       justify-content:center;
-      padding:140px 8vw 80px;
+      padding:140px 8vw;
       text-align:center;
     }
-    .hero h1{
+    h1{
       font-family:Orbitron;
-      font-size:clamp(42px,6vw,78px);
-      line-height:1.05;
-      margin:0 0 24px;
+      font-size:clamp(42px,6vw,72px);
       background:linear-gradient(90deg,var(--neon),var(--neon2));
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
+      margin-bottom:20px;
     }
-    .hero p{
-      font-size:18px;
-      color:var(--muted);
+    .chat{
+      margin-top:40px;
       max-width:720px;
-      margin:0 auto;
-    }
-    .chat-box{
-      margin-top:60px;
-      max-width:800px;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:22px;
-      padding:32px;
-      box-shadow:0 0 20px rgba(0,255,224,.1);
-    }
-    .chat-box input{
       width:100%;
-      padding:14px 20px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:30px;
+    }
+    input{
+      width:100%;
+      margin-top:16px;
+      padding:14px 18px;
       border-radius:12px;
       border:none;
-      margin-top:16px;
       font-size:16px;
-    }
-    footer{
-      padding:60px 8vw 80px;
-      border-top:1px solid rgba(255,255,255,0.06);
-      color:var(--muted);
-      font-size:14px;
-      text-align:center;
-      margin-top:80px;
     }
   </style>
 </head>
+
 <body>
 <nav>
   <div class="brand">OWENSONIC ∞</div>
   <div>
     <a href="index.html">Home</a>
-    <a href="#contact">Contact</a>
   </div>
 </nav>
+
 <header>
-  <div class="hero">
-    <h1>AI Assistant</h1>
-    <p>Interact with Owensonic Infinity AI. Ask questions, get guidance, or explore our system architecture in real-time.</p>
+  <h1>AI Assistant</h1>
+  <p>Ask in plain English, slang, fragments, or chaos. The system adapts.</p>
+
+  <div class="chat">
+    <strong>AI:</strong> Hello. How can I assist you?
+    <input type="text" placeholder="Type your message here…" />
   </div>
 </header>
-
-<div class="chat-box">
-  <p><strong>AI:</strong> Hello! I'm the Owensonic Infinity AI Assistant. How can I help you today?</p>
-  <input type="text" placeholder="Type your message here..." />
-</div>
-
-<footer>
-  © Owensonic Infinity. All rights reserved.
-</footer>
 </body>
 </html>
