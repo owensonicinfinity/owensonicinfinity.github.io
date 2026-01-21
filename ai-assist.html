@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owensonic Infinity AI Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;font-family:Inter;background:#05060a;color:#e8ecf3;overflow-x:hidden}
+  nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 32px;background:rgba(5,6,10,.65);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);z-index:1000}
+  nav .brand{font-family:Orbitron;font-weight:800;color:#00ffe0;letter-spacing:1.2px}
+  nav a{color:#e8ecf3;text-decoration:none;margin-left:28px;font-size:14px;opacity:.9}
+  nav a:hover{color:#00ffe0}
+  header{min-height:80vh;display:flex;align-items:center;justify-content:center;padding-top:120px;text-align:center}
+  .chat-container{width:90%;max-width:720px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,.06);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:12px}
+  .messages{height:400px;overflow-y:auto;padding:12px;border-bottom:1px solid rgba(255,255,255,.06)}
+  .message{margin-bottom:12px;padding:8px 12px;border-radius:12px;background:rgba(0,255,224,.05)}
+  .user{background:rgba(95,124,255,.1);align-self:flex-end}
+  .input-area{display:flex;margin-top:12px}
+  .input-area input{flex:1;padding:12px 16px;border-radius:22px;border:1px solid rgba(255,255,255,.1);background:#0b0f1a;color:#e8ecf3}
+  .input-area button{margin-left:12px;padding:12px 24px;border-radius:22px;border:none;background:#00ffe0;color:#05060a;font-weight:600;cursor:pointer}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand">OWENSONIC ∞</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="engineering.html">Engineering</a>
+    <a href="projects.html">Projects</a>
+    <a href="ai-assist.html">AI Assistant</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<header>
+  <div>
+    <h1>Owensonic AI Helper</h1>
+    <p>Interactive AI to assist with technical, casual, or gibberish input. Understands everything you throw at it.</p>
+    <div class="chat-container">
+      <div class="messages" id="messages"></div>
+      <div class="input-area">
+        <input type="text" id="userInput" placeholder="Ask anything...">
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</header>
+<script>
+  const messages = document.getElementById('messages');
+  function sendMessage(){
+    const input = document.getElementById('userInput');
+    if(!input.value) return;
+    const userMsg = document.createElement('div');
+    userMsg.className='message user';
+    userMsg.textContent=input.value;
+    messages.appendChild(userMsg);
+    // placeholder AI response
+    const aiMsg = document.createElement('div');
+    aiMsg.className='message';
+    aiMsg.textContent='AI processing...';
+    messages.appendChild(aiMsg);
+    messages.scrollTop = messages.scrollHeight;
+    input.value='';
+    // here: connect OpenAI or server API for real response
+  }
+</script>
+</body>
+</html>
