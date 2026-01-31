@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #000; /* Dark space theme */
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #000;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -16,67 +16,57 @@
         }
         header {
             text-align: center;
-            padding: 20px;
-            background-color: #111;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, #111, #000);
         }
-        h1 {
+        h1.main-title {
             font-family: 'Anton', sans-serif;
-            font-size: 3em;
-            font-weight: 400; /* Anton is inherently bold/thick */
-            letter-spacing: 2px;
+            font-size: 5.5rem;
+            letter-spacing: 6px;
             margin: 0;
             text-transform: uppercase;
+            text-shadow: 0 0 25px #0ff, 0 0 50px #0ff;
         }
         nav {
             text-align: center;
-            margin: 20px 0;
+            padding: 25px;
+            background: #111;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
-            color: #0ff; /* Neon cyan for links */
-            margin: 0 10px;
+            color: #0ff;
+            margin: 0 18px;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #f0f;
+            text-shadow: 0 0 12px #f0f;
         }
-        section {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #222;
-            border-radius: 8px;
-        }
-        hr {
-            border-color: #444;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #111;
-            font-family: 'Anton', sans-serif;
-            font-size: 1.2em;
-        }
-        /* Hero Globe Animation */
         #hero {
-            position: relative;
-            height: 400px;
+            height: 550px;
             display: flex;
             justify-content: center;
             align-items: center;
+            background: #000;
             overflow: hidden;
         }
         .earth-container {
             position: relative;
-            width: 300px;
-            height: 300px;
+            width: 420px;
+            height: 420px;
         }
         .earth {
             width: 100%;
             height: 100%;
-            background-image: url('https://thumbs.dreamstime.com/b/breathtaking-view-earth-taken-space-revealing-planet-s-vibrant-blue-oceans-swirling-white-clouds-capturing-its-352109314.jpg');
+            background-image: url('https://science.nasa.gov/wp-content/uploads/2023/09/earth-from-space.jpg?w=4096');
             background-size: cover;
             border-radius: 50%;
-            animation: rotate 60s linear infinite;
+            box-shadow: 0 0 80px rgba(0, 255, 255, 0.5);
+            animation: rotate 100s linear infinite;
         }
         @keyframes rotate {
             from { transform: rotate(0deg); }
@@ -84,68 +74,102 @@
         }
         .satellite-ring {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
         }
         .satellite {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: lime; /* Fluorescent green */
+            width: 14px;
+            height: 14px;
+            background: lime;
             border-radius: 50%;
-            box-shadow: 0 0 10px lime;
+            box-shadow: 0 0 25px lime, 0 0 50px lime;
         }
         .laser {
             position: absolute;
-            width: 2px;
-            height: 150px; /* Half radius + some */
-            background-color: red;
-            transform-origin: bottom center;
-            opacity: 0.7;
-            animation: pulse 1s ease-in-out infinite alternate;
+            width: 4px;
+            height: 220px;
+            background: linear-gradient(to bottom, red, transparent);
+            transform-origin: top center;
+            opacity: 0.65;
+            animation: pulse-laser 2.5s ease-in-out infinite alternate;
         }
-        @keyframes pulse {
-            from { opacity: 0.3; }
-            to { opacity: 0.8; }
+        @keyframes pulse-laser {
+            from { opacity: 0.4; height: 200px; }
+            to { opacity: 0.95; height: 240px; }
+        }
+        section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 45px;
+            background: rgba(15, 15, 15, 0.92);
+            border-radius: 18px;
+            border: 1px solid #444;
+        }
+        h1, h2, h3, h4 {
+            color: #0ff;
+        }
+        hr {
+            border: 1px solid #555;
+            margin: 50px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: #111;
+            font-family: 'Anton', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px #0ff;
+        }
+        footer a {
+            color: #0ff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #f0f;
+            text-shadow: 0 0 15px #f0f;
+        }
+        @media (max-width: 768px) {
+            h1.main-title { font-size: 4rem; }
+            #hero { height: 400px; }
+            .earth-container { width: 320px; height: 320px; }
+            nav a { margin: 8px; font-size: 1rem; display: inline-block; }
+            section { padding: 30px; margin: 40px 15px; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>OwenSonicInfinity</h1>
+        <h1 class="main-title">OwenSonicInfinity</h1>
     </header>
 
-    <!-- Hero Section with Animated Globe -->
     <div id="hero">
         <div class="earth-container">
             <div class="earth"></div>
             <div class="satellite-ring">
-                <!-- Satellites and Lasers: 24 satellites positioned around the circle -->
                 <script>
                     const ring = document.querySelector('.satellite-ring');
-                    const numSatellites = 24;
-                    const radius = 150; // Half of container size
-                    for (let i = 0; i < numSatellites; i++) {
-                        const angle = (i / numSatellites) * 360;
-                        const rad = angle * (Math.PI / 180);
-                        const x = radius + Math.cos(rad) * radius * 1.2; // Slightly outside
-                        const y = radius + Math.sin(rad) * radius * 1.2;
+                    const numSat = 28;
+                    const radius = 210;
+                    for (let i = 0; i < numSat; i++) {
+                        const angle = (i / numSat) * 360 + (Math.random() * 15 - 7.5);
+                        const rad = angle * Math.PI / 180;
+                        const dist = radius * (1.08 + Math.random() * 0.25);
+                        const x = radius + Math.cos(rad) * dist;
+                        const y = radius + Math.sin(rad) * dist;
 
-                        // Satellite
                         const sat = document.createElement('div');
                         sat.className = 'satellite';
                         sat.style.left = `${x}px`;
                         sat.style.top = `${y}px`;
                         ring.appendChild(sat);
 
-                        // Laser beam pointing to center
                         const laser = document.createElement('div');
                         laser.className = 'laser';
                         laser.style.left = `${x}px`;
                         laser.style.top = `${y}px`;
-                        laser.style.transform = `rotate(${angle + 180}deg) translateY(-75px)`; // Point inward
+                        laser.style.transform = `rotate(${angle - 90}deg)`;
                         ring.appendChild(laser);
                     }
                 </script>
@@ -155,15 +179,15 @@
 
     <nav>
         <a href="#home">Home</a>
-        <a href="#background">Background & Philosophy</a>
+        <a href="#background">Background</a>
         <a href="#mission">Mission</a>
-        <a href="#rnd">Research & Development</a>
+        <a href="#rnd">R&D</a>
         <a href="#projects">Projects</a>
-        <a href="#active-projects">Active Projects</a>
+        <a href="#active-projects">Active</a>
         <a href="#daisyos">DAISY OS</a>
-        <a href="#daisyossub">DAISY OS Sub</a>
-        <a href="#kickstarterfirestorm">Kickstarter Firestorm</a>
-        <a href="#master-website">Master Website</a>
+        <a href="#daisyossub">DAISY Sub</a>
+        <a href="#kickstarterfirestorm">Kickstarter</a>
+        <a href="#master-website">Master</a>
     </nav>
 
     <section id="home">
@@ -291,27 +315,17 @@
     <section id="daisyos">
         <h1>OwenSonicInfinity | DAISY OS</h1>
         <h2>What DAISY Is</h2>
-        <p>DAISY OS is an operating intelligence designed to support humans
-          where modern systems fail quietly. It does not replace decision-making.
-          It stabilizes it.</p>
+        <p>DAISY OS is an operating intelligence designed to support humans where modern systems fail quietly. It does not replace decision-making. It stabilizes it.</p>
         <h3>Purpose-Built Assistance</h3>
-        <p>DAISY exists to auto-fill gaps created by fragmented tools, bad interfaces,
-          information overload, and human fatigue. Where other systems wait for commands,
-          DAISY anticipates structure.</p>
+        <p>DAISY exists to auto-fill gaps created by fragmented tools, bad interfaces, information overload, and human fatigue. Where other systems wait for commands, DAISY anticipates structure.</p>
         <h3>Non-Disposable Architecture</h3>
-        <p>Nothing in DAISY is designed to be temporary, fragile, or forgotten.
-          Every function compounds. Every interaction contributes to continuity.</p>
+        <p>Nothing in DAISY is designed to be temporary, fragile, or forgotten. Every function compounds. Every interaction contributes to continuity.</p>
         <h3>Human Alignment First</h3>
-        <p>DAISY does not manipulate attention, extract dopamine, or optimize engagement.
-          It optimizes clarity, order, and long-term usability without coercion.</p>
+        <p>DAISY does not manipulate attention, extract dopamine, or optimize engagement. It optimizes clarity, order, and long-term usability without coercion.</p>
         <h3>Controlled Transparency</h3>
-        <p>The system reveals what matters, when it matters.
-          Internal mechanics are protected by design.
-          Capability is demonstrated through results, not exposure.</p>
+        <p>The system reveals what matters, when it matters. Internal mechanics are protected by design. Capability is demonstrated through results, not exposure.</p>
         <h2>Why It Exists</h2>
-        <p>DAISY was created because existing platforms normalize inefficiency,
-          monetize confusion, and externalize responsibility onto users.
-          This system corrects that trajectory.</p>
+        <p>DAISY was created because existing platforms normalize inefficiency, monetize confusion, and externalize responsibility onto users. This system corrects that trajectory.</p>
         <hr>
     </section>
 
@@ -373,26 +387,22 @@
     <section id="master-website">
         <h1>OwenSonicInfinity</h1>
         <h1>Mission</h1>
-        <p>We replace broken systems. No credentials worship. No permission slips.
-        Ideas are built, tested, shipped, and owned by the people who create them.</p>
+        <p>We replace broken systems. No credentials worship. No permission slips. Ideas are built, tested, shipped, and owned by the people who create them.</p>
         <h1>Daisy OS</h1>
-        <p>Daisy OS is the platform. Daisy AI lives inside it.
-        Always-on when allowed. Context-aware. Respect-first.
-        No monetized neglect. No buried clarity.</p>
+        <p>Daisy OS is the platform. Daisy AI lives inside it. Always-on when allowed. Context-aware. Respect-first. No monetized neglect. No buried clarity.</p>
         <h1>Projects</h1>
-        <p>Active foundations only. Real systems. Real engineering.
-        Kickstarter launches when ready. Not before.</p>
+        <p>Active foundations only. Real systems. Real engineering. Kickstarter launches when ready. Not before.</p>
         <h1>News & Updates</h1>
-        <p>Development updates, releases, milestones.
-        No hype cycles. No fluff.</p>
+        <p>Development updates, releases, milestones. No hype cycles. No fluff.</p>
         <h1>Careers</h1>
         <p>Coming soon. Built for humans, not numbers.</p>
         <hr>
     </section>
 
     <footer>
-        OwenSonicInfinity
-        <!-- Add email if provided: contact@owensonicinfinity.com -->
+        OwenSonicInfinity<br>
+        <a href="mailto:owensonicinfinity@gmail.com">owensonicinfinity@gmail.com</a>
     </footer>
+
 </body>
 </html>
