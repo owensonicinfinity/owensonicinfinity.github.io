@@ -4,229 +4,126 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OwenSonicInfinity</title>
+
+<!-- Fonts & Styles -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
-
-    html, body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Orbitron', sans-serif;
-        background-color: #000;
-        color: #00ffff;
-        overflow-x: hidden;
-    }
-
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #000;
-        z-index: 1000;
-        padding: 20px 0;
-        text-align: center;
-        border-bottom: 1px solid #00ffff;
-    }
-
-    header h1 {
-        font-size: 3em;
-        font-weight: 900;
-        letter-spacing: 2px;
-        color: #00ffff;
-        display: inline-block;
-        margin: 0 20px;
-    }
-
-    .globe-left, .globe-right {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: 2px solid #ff00ff;
-        position: absolute;
-        top: 15px;
-        animation: rotate 10s linear infinite;
-    }
-
-    .globe-left { left: 20px; }
-    .globe-right { right: 20px; }
-
-    @keyframes rotate {
-        0% { transform: rotate(0deg) translateX(0px); }
-        50% { transform: rotate(180deg) translateX(20px); }
-        100% { transform: rotate(360deg) translateX(0px); }
-    }
-
-    nav {
-        position: fixed;
-        left: 0;
-        top: 100px;
-        width: 250px;
-        background-color: #000;
-        border-right: 1px solid #00ffff;
-        height: calc(100% - 100px);
-        padding: 20px;
-        overflow-y: auto;
-    }
-
-    nav h2 {
-        font-size: 1.5em;
-        margin-bottom: 15px;
-    }
-
-    nav a {
-        display: block;
-        color: #00ffff;
-        text-decoration: none;
-        margin: 5px 0;
-        font-size: 1.1em;
-    }
-
-    nav a:hover {
-        color: #ff00ff;
-    }
-
-    main {
-        margin-left: 270px;
-        padding: 150px 50px 50px 50px;
-    }
-
-    section {
-        margin-bottom: 100px;
-        padding: 20px;
-        border-bottom: 1px solid #00ffff;
-    }
-
-    section h2 {
-        font-size: 2em;
-        margin-bottom: 15px;
-        color: #00ffff;
-    }
-
-    section p {
-        font-size: 1.2em;
-        line-height: 1.6em;
-        color: #00ffff;
-    }
-
-    .highlight {
-        color: #ff00ff;
-        font-weight: bold;
-    }
-
-    .animated-satellite {
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: #ffff00;
-        position: absolute;
-        top: 200px;
-        left: 50%;
-        animation: orbit 8s linear infinite;
-    }
-
-    @keyframes orbit {
-        0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
-        100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
-    }
-
-    .news-update {
-        background-color: #111;
-        border: 1px solid #00ffff;
-        padding: 10px;
-        margin: 10px 0;
-    }
-
-    footer {
-        text-align: center;
-        padding: 30px;
-        border-top: 1px solid #00ffff;
-    }
-
-    /* Scroll-to section */
-    html {
-        scroll-behavior: smooth;
-    }
+  /* Reset */
+  * {margin:0; padding:0; box-sizing:border-box;}
+  body {font-family: 'Roboto', sans-serif; background:#111; color:#fff; overflow-x:hidden;}
+  a {color:#ffcc00; text-decoration:none;}
+  a:hover {color:#fff;}
+  
+  /* Header */
+  header {display:flex; justify-content:space-between; align-items:center; padding:20px; background:#000; position:sticky; top:0; z-index:1000;}
+  .logo {font-weight:900; font-size:2.5em; color:#ffcc00; letter-spacing:2px;}
+  nav a {margin-left:25px; font-weight:700; font-size:1em;}
+  nav a:hover {text-decoration:underline;}
+  
+  /* Animations */
+  .fade-in {opacity:0; transform:translateY(30px); transition: all 0.7s ease-out;}
+  .fade-in.visible {opacity:1; transform:translateY(0);}
+  .globe {width:80px; height:80px; background:conic-gradient(#ffcc00 0 30%, #fff 30% 100%); border-radius:50%; animation:spin 12s linear infinite;}
+  @keyframes spin {from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
+  
+  /* Main sections */
+  section {padding:100px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;}
+  h1, h2 {margin-bottom:20px;}
+  h1 {font-size:3em; font-weight:900; color:#ffcc00;}
+  h2 {font-size:2.5em; font-weight:700; color:#fff;}
+  p {max-width:900px; font-size:1.1em; line-height:1.6em; text-align:center;}
+  
+  /* Buttons */
+  .btn {padding:15px 40px; background:#ffcc00; color:#000; font-weight:700; border:none; cursor:pointer; margin:10px; transition:0.3s;}
+  .btn:hover {background:#fff; color:#000;}
+  
+  /* News & Updates */
+  #news {background:#222; width:100%; text-align:center; padding:50px 20px;}
+  #news h2 {margin-bottom:40px;}
+  .news-item {margin:20px 0; padding:15px; background:#333; border-radius:10px; transition:0.3s;}
+  .news-item:hover {background:#444;}
+  
+  /* Careers placeholder */
+  #careers {background:#111; padding:80px 20px; text-align:center;}
+  #careers h2 {margin-bottom:20px;}
+  
+  /* Navigation scrolling */
+  html {scroll-behavior:smooth;}
 </style>
 </head>
+
 <body>
 
+<!-- Header -->
 <header>
-    <div class="globe-left"></div>
-    <h1>OwenSonicInfinity</h1>
-    <div class="globe-right"></div>
+  <div class="globe"></div>
+  <div class="logo">OwenSonicInfinity</div>
+  <nav>
+    <a href="#mission">Mission</a>
+    <a href="#projects">Projects</a>
+    <a href="#daisyos">Daisy OS</a>
+    <a href="#news">News</a>
+    <a href="#careers">Careers</a>
+  </nav>
+  <div class="globe"></div>
 </header>
 
-<nav>
-    <h2>Navigation</h2>
-    <a href="#mission">Mission Statement</a>
-    <a href="#projects">Active Projects</a>
-    <a href="#daisy">Daisy OS</a>
-    <a href="#materials">Materials</a>
-    <a href="#kickstarter">Kickstarter</a>
-    <a href="#news">News & Updates</a>
-    <a href="#careers">Careers</a>
-</nav>
-
-<main>
-
-<section id="mission">
-    <h2>Mission Statement</h2>
-    <p><span class="highlight">OwenSonicInfinity</span> exists to innovate, develop, and integrate advanced technologies for real-world solutions. Our mission is to ensure that no user, employee, or partner is ignored. Every project is guided by integrity, efficiency, and progress. We prioritize results, not hype. We do not chase perfection; we achieve excellence through iteration and consistent improvement.</p>
+<!-- Mission Section -->
+<section id="mission" class="fade-in">
+  <h1>Our Mission</h1>
+  <p>OwenSonicInfinity is dedicated to pushing the boundaries of innovation across technology, AI, and engineering. We integrate decades of research into products that redefine possibilities. Our mission is simple: develop high-performance solutions that inspire, empower, and revolutionize the way people interact with technology.</p>
 </section>
 
-<section id="projects">
-    <h2>Active Projects</h2>
-    <p>Our current and upcoming projects include:</p>
-    <ul>
-        <li><span class="highlight">Daisy OS</span> – always-on, autonomous operating system with integrated Daisy AI</li>
-        <li>Kickstarter Launch Placeholder – project timeline and risk disclosures ready</li>
-        <li>R&D on new materials to replace carbon fiber</li>
-        <li>Future smart glasses, earbuds, and phones (coming soon)</li>
-        <li>High-performance clutch and steel mill sampler (past innovations)</li>
-        <li>QR code & UPC standards realignment (operational improvements)</li>
-    </ul>
+<!-- Projects Section -->
+<section id="projects" class="fade-in">
+  <h1>Active Projects</h1>
+  <p>From Daisy OS and smart systems to next-gen R&D innovations, every project is a culmination of experience, creativity, and precision. Stay tuned for new releases and milestones as we redefine what's possible in technology.</p>
+  <button class="btn" onclick="window.location.href='projects.html'">View All Projects</button>
 </section>
 
-<section id="daisy">
-    <h2>Daisy OS & Daisy AI</h2>
-    <p><span class="highlight">Daisy OS</span> is a complete operating system that comes with <span class="highlight">Daisy AI</span> integrated. Key features include:</p>
-    <ul>
-        <li>Media creation and editing tools (music, video, writing)</li>
-        <li>Organization and automation capabilities</li>
-        <li>Always-on, autonomous, context-aware assistance</li>
-        <li>Local user context storage – IP and ideas remain protected</li>
-        <li>Biometrics-based activation: fingerprint, face, or keyword</li>
-        <li>Continuous improvement and updates, never finished, always evolving</li>
-    </ul>
+<!-- Daisy OS Section -->
+<section id="daisyos" class="fade-in">
+  <h1>Daisy OS</h1>
+  <p>Daisy OS is the intelligent ecosystem powering all OwenSonicInfinity devices. Complete with built-in Daisy AI, it adapts, learns, and integrates across all platforms for seamless operation. From smart homes to advanced R&D systems, Daisy OS is the foundation of our technology empire.</p>
+  <button class="btn" onclick="window.location.href='daisyos.html'">Learn More</button>
 </section>
 
-<section id="materials">
-    <h2>Materials</h2>
-    <p>Research into next-generation materials to replace carbon fiber, improve durability, reduce costs, and enable innovative product design.</p>
+<!-- News & Updates -->
+<section id="news" class="fade-in">
+  <h2>News & Updates</h2>
+  <div class="news-item">
+    <h3>January 2026 - Daisy OS Update</h3>
+    <p>New dynamic scroll and interactive features deployed across the master website. Experience smoother transitions, fade-ins, and live updates.</p>
+  </div>
+  <div class="news-item">
+    <h3>January 2026 - Kickstarter Prep</h3>
+    <p>Our Kickstarter launch materials are now prepared, with all disclaimers, project history, and research fully documented for public transparency.</p>
+  </div>
 </section>
 
-<section id="kickstarter">
-    <h2>Kickstarter</h2>
-    <p>Our upcoming crowdfunding campaign placeholder. Project timelines, risk disclosures, and historical product achievements (high-performance clutch, steel mill sampler) will be included.</p>
+<!-- Careers Placeholder -->
+<section id="careers" class="fade-in">
+  <h2>Careers</h2>
+  <p>Coming Soon: Join the OwenSonicInfinity team and help shape the future of advanced technology and AI. Opportunities will be listed here as they become available.</p>
 </section>
 
-<section id="news">
-    <h2>News & Updates</h2>
-    <div class="news-update">New project milestone reached – Daisy OS internal beta complete.</div>
-    <div class="news-update">Kickstarter prep underway for next innovation launch.</div>
-    <div class="news-update">R&D lab developing next-gen materials for wearables and phones.</div>
-</section>
-
-<section id="careers">
-    <h2>Careers</h2>
-    <p>Careers coming soon – stay tuned for opportunities to join OwenSonicInfinity.</p>
-</section>
-
-<div class="animated-satellite"></div>
-<div class="animated-satellite" style="animation-delay: 4s;"></div>
-
-<footer>
-    &copy; 2026 OwenSonicInfinity. All rights reserved.
+<!-- Footer -->
+<footer class="fade-in" style="padding:50px; text-align:center; background:#000;">
+  <p>&copy; 2026 OwenSonicInfinity. All Rights Reserved.</p>
 </footer>
+
+<!-- Scripts -->
+<script>
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = {threshold:0.3};
+  const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target);}
+    });
+  }, appearOptions);
+  faders.forEach(fader => {appearOnScroll.observe(fader);});
+</script>
 
 </body>
 </html>
