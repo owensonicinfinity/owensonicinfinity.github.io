@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owensonic Infinity - Kickstarter</title>
+<style>
+    /* General Styles */
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #00ffff;
+        font-family: 'Arial', sans-serif;
+        overflow-x: hidden;
+    }
+    h1, h2, h3 {
+        font-weight: bold;
+    }
+    h1 {
+        font-size: 3em;
+        margin-top: 40px;
+        text-align: center;
+        color: #00ffff;
+        text-shadow: 0 0 20px #00ffff;
+    }
+    h2 {
+        font-size: 2em;
+        margin: 30px 0 15px 0;
+        color: #00ffff;
+        text-shadow: 0 0 15px #00ffff;
+    }
+    p {
+        font-size: 1.2em;
+        line-height: 1.6em;
+        max-width: 900px;
+        margin: 10px auto;
+    }
+    a {
+        color: #ff00ff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Sitemap Styles */
+    .sitemap {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0,0,0,0.95);
+        padding: 10px;
+        z-index: 1000;
+        text-align: center;
+    }
+    .sitemap a {
+        margin: 0 15px;
+    }
+
+    /* Moving globes */
+    .globe-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .globe {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ff00ff;
+        opacity: 0.7;
+        animation: moveGlobe linear infinite;
+    }
+    @keyframes moveGlobe {
+        0% { transform: translateY(0) translateX(0); }
+        50% { transform: translateY(80vh) translateX(50vw); }
+        100% { transform: translateY(0) translateX(100vw); }
+    }
+
+    /* Section Styles */
+    section {
+        padding: 50px 20px;
+        border-bottom: 1px solid #00ffff;
+    }
+    .highlight {
+        color: #ff00ff;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="sitemap">
+    <a href="index.html">Home</a>
+    <a href="mission.html">Mission</a>
+    <a href="randd.html">R&D</a>
+    <a href="background.html">Background</a>
+    <a href="daisy.html">Daisy OS</a>
+    <a href="projects.html">Projects</a>
+    <a href="kickstarter.html">Kickstarter</a>
+</div>
+
+<div class="globe-container">
+    <div class="globe" style="top:5%; left:10%; animation-duration:25s;"></div>
+    <div class="globe" style="top:20%; left:70%; animation-duration:35s;"></div>
+    <div class="globe" style="top:60%; left:30%; animation-duration:40s;"></div>
+    <div class="globe" style="top:80%; left:50%; animation-duration:30s;"></div>
+</div>
+
+<h1>Owensonic Infinity - Kickstarter Launch</h1>
+
+<section>
+    <h2>Our Commitment</h2>
+    <p>We are building on <span class="highlight">25+ years of research and development</span>, leveraging decades of DIY innovation and independent experimentation across engineering, materials science, electronics, and product design. Every lesson learned, every prototype tested, and every failure experienced contributes to the product you see today.</p>
+</section>
+
+<section>
+    <h2>Past Successes & Lessons Learned</h2>
+    <p><span class="highlight">High-Performance Clutch for Minibike Engines:</span> Designed and built a superior clutch that outperformed standard options. Despite success, it was copied and commercially exploited by others. This experience taught us the importance of IP protection and secure development.</p>
+    <p><span class="highlight">Industrial Steel Mill Sampler:</span> Developed the largest-ever sampler capable of extracting 8 lbs of molten steel, a breakthrough for cost reduction and efficiency. Corporate barriers prevented full adoption, teaching us how to protect our innovation while delivering results.</p>
+</section>
+
+<section>
+    <h2>Our Goal</h2>
+    <p>We are consolidating the best of all previous innovations into a single, fully functional, high-quality product package. We aim to deliver <span class="highlight">the most advanced, reliable, and user-focused solution possible</span>.</p>
+</section>
+
+<section>
+    <h2>Risks & Transparency</h2>
+    <p>All new product development carries risks. Some components, features, or experiments may not perform as expected. Unforeseen challenges may arise.</p>
+    <p><span class="highlight">Failure Protocol:</span> If the project cannot be delivered as promised, every backer will receive a <span class="highlight">full refund</span>. No excuses. No spin. Transparent updates at every step.</p>
+</section>
+
+<section>
+    <h2>Timeline Flexibility</h2>
+    <p>We’ve built an extended timeline into the campaign to account for experimentation and component delivery. Your support allows us to explore, refine, and perfect the product without cutting corners.</p>
+</section>
+
+<section>
+    <h2>Our Track Record</h2>
+    <p>Over 25 years of independent R&D, including DIY engineering breakthroughs, custom prototypes, and unique system designs. Past successes like the high-performance clutch and steel mill sampler prove our capability and vision, even when history didn’t allow commercial realization. Every project informs and improves the next.</p>
+</section>
+
+<section>
+    <h2>Summary</h2>
+    <p>This is not just a product. It’s 25 years of innovation, curated, tested, and optimized for real-world performance. If we fail to deliver, you get your funds back, no questions asked. That’s the only guarantee that matters.</p>
+</section>
+
+</body>
+</html>
