@@ -1,255 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Owensonic Infinity | Projects</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-:root {
-  --bg: #000000;
-  --neon: #00b7ff;
-  --accent: #9b5cff;
-  --text: #e6f7ff;
-  --muted: #7aaed6;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background: radial-gradient(circle at center, #05070a 0%, #000 70%);
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
-}
-
-/* HEADER */
-header {
-  padding: 40px 20px 25px;
-  border-bottom: 1px solid rgba(0,183,255,0.3);
-  text-align: center;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 42px;
-  color: var(--neon);
-  letter-spacing: 2px;
-}
-
-header h2 {
-  margin: 10px 0 0;
-  font-size: 18px;
-  font-weight: normal;
-  color: var(--muted);
-}
-
-header a {
-  display: inline-block;
-  margin-top: 12px;
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 14px;
-}
-
-header a:hover {
-  text-decoration: underline;
-}
-
-/* FLOATING ORBITS */
-.orbit {
-  position: absolute;
-  border: 1px dashed rgba(155,92,255,0.25);
-  border-radius: 50%;
-  animation: spin linear infinite;
-}
-
-.orbit.one {
-  width: 500px;
-  height: 500px;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation-duration: 80s;
-}
-
-.orbit.two {
-  width: 700px;
-  height: 700px;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation-duration: 140s;
-}
-
-.satellite {
-  width: 8px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 50%;
-  position: absolute;
-  top: -4px;
-  left: 50%;
-  box-shadow: 0 0 12px var(--accent);
-}
-
-@keyframes spin {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to { transform: translateX(-50%) rotate(360deg); }
-}
-
-/* MAIN */
-main {
-  max-width: 1100px;
-  margin: 120px auto 80px;
-  padding: 0 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.section {
-  margin-bottom: 80px;
-}
-
-.section h3 {
-  font-size: 30px;
-  color: var(--neon);
-  margin-bottom: 20px;
-}
-
-.section p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--text);
-  max-width: 850px;
-}
-
-/* PROJECT CARDS */
-.project {
-  border: 1px solid rgba(0,183,255,0.3);
-  padding: 25px;
-  margin-top: 30px;
-  background: linear-gradient(145deg, rgba(0,183,255,0.05), rgba(0,0,0,0.8));
-}
-
-.project h4 {
-  margin: 0 0 10px;
-  font-size: 22px;
-  color: var(--accent);
-}
-
-.project p {
-  margin: 0 0 15px;
-  color: var(--muted);
-}
-
-.project a {
-  color: var(--neon);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.project a:hover {
-  text-decoration: underline;
-}
-
-/* SITEMAP */
-footer {
-  border-top: 1px solid rgba(0,183,255,0.3);
-  padding: 30px 20px 50px;
-  text-align: center;
-}
-
-footer h5 {
-  margin-bottom: 15px;
-  font-size: 16px;
-  color: var(--muted);
-  font-weight: normal;
-}
-
-.sitemap a {
-  margin: 0 12px;
-  color: var(--neon);
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.sitemap a:hover {
-  text-decoration: underline;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owensonic Infinity - Projects</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            color: #00ffff;
+        }
+        header {
+            background-color: #111111;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 5px 0 0 0;
+        }
+        .mission-link {
+            color: #ff00ff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        nav {
+            background-color: #111111;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        nav a:hover {
+            color: #ff00ff;
+        }
+        main {
+            padding: 40px;
+            text-align: center;
+        }
+        main h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 30px;
+            align-items: center;
+        }
+        .project-item {
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 30px;
+            width: 80%;
+            max-width: 900px;
+            background-color: #111111;
+            transition: transform 0.3s ease;
+        }
+        .project-item:hover {
+            transform: scale(1.05);
+            border-color: #ff00ff;
+        }
+        .project-item h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .project-item p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #111111;
+            color: #00ffff;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        /* Animated satellites effect */
+        .satellite {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #ff00ff;
+            animation: orbit 10s linear infinite;
+        }
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(200px) rotate(0deg);}
+            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg);}
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <h1>Owensonic Infinity</h1>
+        <p class="mission-link" onclick="window.location.href='mission.html'">
+            Click here to read our mission statement
+        </p>
+        <!-- Satellites / moving globes -->
+        <div class="satellite" style="top: 50px; left: 50px;"></div>
+        <div class="satellite" style="top: 80px; left: 300px; background-color:#00ff00; animation-duration:15s;"></div>
+        <div class="satellite" style="top: 150px; left: 600px; background-color:#ffff00; animation-duration:20s;"></div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="mission.html">Mission</a>
+        <a href="background.html">Background & Philosophy</a>
+        <a href="rd.html">R&D</a>
+        <a href="projects.html">Projects</a>
+        <a href="daisy.html">DaisyOS</a>
+        <a href="kickstarter.html">Kickstarter</a>
+    </nav>
+    
+    <main>
+        <h2>Active Projects & Initiatives</h2>
+        <div class="projects-list">
+            <div class="project-item">
+                <h3>Kickstarter Launch</h3>
+                <p>Our upcoming Kickstarter project showcases Owensonic Infinity’s innovations, delivering our philosophy and technology directly to the global audience. Designed for evolution, not just profit.</p>
+            </div>
+            <div class="project-item">
+                <h3>DaisyOS Operating System</h3>
+                <p>DaisyOS is our AI assistant and OS layer that anticipates, auto-fills, and organizes user workflows across devices. Protects IP, optimizes operations, and integrates with all smart hardware seamlessly.</p>
+            </div>
+            <div class="project-item">
+                <h3>Smart Devices & Wearables</h3>
+                <p>Active R&D streams include next-generation smart glasses, earbuds, wearables, and smartphones. Products integrate DaisyOS and advanced materials for maximum performance.</p>
+            </div>
+            <div class="project-item">
+                <h3>Next-Generation Materials</h3>
+                <p>Developing replacements for carbon fiber to reduce costs and increase performance. All materials reflect Owensonic Infinity’s philosophy of durable, evolutionary products.</p>
+            </div>
+            <div class="project-item">
+                <h3>New Industry Standards</h3>
+                <p>Creating Daisy Master Shell to standardize QR codes, UPCs, and barcodes, eliminating inefficiencies across industries. Our solutions can streamline operations for companies of all sizes, from local shops to global corporations like Amazon and Kickstarter, even if they refuse to adopt them.</p>
+            </div>
+        </div>
+    </main>
 
-<!-- ORBITS -->
-<div class="orbit one"><div class="satellite"></div></div>
-<div class="orbit two"><div class="satellite"></div></div>
-
-<header>
-  <h1>OWENSONIC INFINITY</h1>
-  <h2>Projects & Active Developments</h2>
-  <a href="mission.html">Click here to read our Mission Statement</a>
-</header>
-
-<main>
-
-  <div class="section">
-    <h3>Active & Upcoming Projects</h3>
-    <p>
-      Owensonic Infinity does not release concepts for spectacle.
-      Every project listed here exists because it solves a real deficiency,
-      replaces a broken system, or corrects a failure that industry normalized.
-    </p>
-  </div>
-
-  <div class="project">
-    <h4>Kickstarter Launch | Public Entry Point</h4>
-    <p>
-      This launch is not positioned as fundraising theater.
-      It is a controlled public on-ramp for vetted supporters who understand
-      the operating philosophy before participation.
-    </p>
-    <a href="kickstarter.html">View Kickstarter Overview</a>
-  </div>
-
-  <div class="project">
-    <h4>DAISY OS | Human-Centered Operating Intelligence</h4>
-    <p>
-      DAISY is not a chatbot, not an assistant, and not a novelty interface.
-      It exists to stabilize chaos, close cognitive gaps, and autonomously
-      support users where existing systems fail silently.
-    </p>
-    <a href="daisyos.html">Explore DAISY OS</a>
-  </div>
-
-  <div class="project">
-    <h4>Research & Development Stack</h4>
-    <p>
-      Aerospace logic, systems engineering, material science, embedded control,
-      and applied problem-solving form the foundation of every deployment.
-      Nothing here was invented overnight.
-    </p>
-    <a href="rnd.html">Enter R&D Division</a>
-  </div>
-
-</main>
-
-<footer>
-  <h5>Site Map</h5>
-  <div class="sitemap">
-    <a href="index.html">Home</a>
-    <a href="mission.html">Mission</a>
-    <a href="projects.html">Projects</a>
-    <a href="rnd.html">R&D</a>
-    <a href="background.html">Background & Philosophy</a>
-    <a href="consulting.html">Consulting</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</footer>
-
+    <footer>
+        &copy; 2026 Owensonic Infinity | douglasonic.infinity@gmail.com | 440-281-6270
+    </footer>
 </body>
 </html>
