@@ -1,312 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Background & Philosophy | Owensonic Infinity</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Owensonic Infinity | Background & Philosophy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --bg: #000000;
-      --neon: #00e5ff;
-      --accent: #9d7cff;
-      --pulse: #00ffa6;
-      --text: #d9d9d9;
-      --muted: #7a7a7a;
-    }
+<style>
+:root {
+  --bg: #000000;
+  --neon: #00b7ff;
+  --accent: #8f5bff;
+  --text: #e8f8ff;
+  --muted: #7aaed6;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* { box-sizing: border-box; }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      overflow-x: hidden;
-    }
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #05070b 0%, #000 70%);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
 
-    header {
-      border-bottom: 1px solid rgba(0,229,255,0.35);
-      padding: 28px 24px 20px;
-    }
+/* HEADER */
+header {
+  padding: 40px 20px 30px;
+  border-bottom: 1px solid rgba(0,183,255,0.35);
+  text-align: center;
+}
 
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+header h1 {
+  margin: 0;
+  font-size: 42px;
+  color: var(--neon);
+  letter-spacing: 2px;
+}
 
-    .company-name {
-      font-size: 2.3rem;
-      color: var(--neon);
-      letter-spacing: 0.05em;
-    }
+header h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: normal;
+  color: var(--muted);
+}
 
-    .mission-link {
-      font-size: 0.85rem;
-      margin-top: 8px;
-      color: var(--muted);
-    }
+header a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    .mission-link a {
-      color: var(--neon);
-      text-decoration: none;
-    }
+header a:hover { text-decoration: underline; }
 
-    /* SUBTLE MOTION STRIP */
-    .motion-band {
-      position: relative;
-      height: 140px;
-      overflow: hidden;
-      margin: 60px 0;
-    }
+/* SUBTLE MOTION */
+.orbit {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0,183,255,0.25);
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: spin 120s linear infinite;
+}
 
-    .line {
-      position: absolute;
-      top: 50%;
-      left: -30%;
-      width: 160%;
-      height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--neon),
-        transparent
-      );
-      animation: drift 18s linear infinite;
-      opacity: 0.6;
-    }
+.orbit span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  top: -4px;
+  left: 50%;
+  box-shadow: 0 0 10px var(--accent);
+}
 
-    .line:nth-child(2) {
-      top: 62%;
-      animation-duration: 26s;
-      opacity: 0.3;
-    }
+@keyframes spin {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
 
-    @keyframes drift {
-      from { transform: translateX(0); }
-      to { transform: translateX(30%); }
-    }
+/* MAIN */
+main {
+  max-width: 1100px;
+  margin: 200px auto 100px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
 
-    main {
-      padding: 0 24px 120px;
-    }
+.section {
+  margin-bottom: 70px;
+}
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+.section h3 {
+  font-size: 32px;
+  color: var(--neon);
+  margin-bottom: 20px;
+}
 
-    h1 {
-      font-size: 3rem;
-      color: var(--neon);
-      margin-bottom: 32px;
-    }
+.section p {
+  font-size: 16px;
+  line-height: 1.85;
+  max-width: 900px;
+}
 
-    h2 {
-      font-size: 1.6rem;
-      color: var(--accent);
-      margin-top: 60px;
-      margin-bottom: 16px;
-    }
+/* EXPERIENCE BLOCKS */
+.block {
+  border: 1px solid rgba(0,183,255,0.35);
+  padding: 28px;
+  margin-top: 30px;
+  background: linear-gradient(160deg, rgba(0,183,255,0.06), rgba(0,0,0,0.9));
+}
 
-    p {
-      font-size: 1.05rem;
-      margin-bottom: 18px;
-      line-height: 1.7;
-    }
+.block h4 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  color: var(--accent);
+}
 
-    .divider {
-      height: 1px;
-      margin: 80px 0;
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--neon),
-        transparent
-      );
-    }
+.block p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
 
-    /* SITEMAP */
-    .sitemap {
-      border-top: 1px solid rgba(0,229,255,0.35);
-      margin-top: 120px;
-      padding-top: 40px;
-    }
+/* FOOTER / SITEMAP */
+footer {
+  border-top: 1px solid rgba(0,183,255,0.35);
+  padding: 30px 20px 50px;
+  text-align: center;
+}
 
-    .sitemap h3 {
-      color: var(--neon);
-      font-size: 1.2rem;
-      margin-bottom: 18px;
-    }
+footer h5 {
+  margin-bottom: 14px;
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: normal;
+}
 
-    .sitemap ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-    }
+.sitemap a {
+  margin: 0 12px;
+  color: var(--neon);
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    .sitemap li {
-      font-size: 0.9rem;
-    }
-
-    .sitemap a {
-      color: var(--text);
-      text-decoration: none;
-      border-left: 2px solid var(--neon);
-      padding-left: 10px;
-    }
-
-    .sitemap a:hover {
-      color: var(--neon);
-    }
-
-    footer {
-      border-top: 1px solid rgba(0,229,255,0.35);
-      padding: 40px 24px;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-  </style>
+.sitemap a:hover { text-decoration: underline; }
+</style>
 </head>
 
 <body>
 
+<div class="orbit"><span></span></div>
+
 <header>
-  <div class="header-container">
-    <div class="company-name">Owensonic Infinity</div>
-    <div class="mission-link">
-      <a href="mission.html">Mission Statement · How We Operate</a>
-    </div>
-  </div>
+  <h1>Background & Philosophy</h1>
+  <h2>Built by Experience, Not Theory</h2>
+  <a href="mission.html">Click here to read our Mission Statement</a>
 </header>
 
-<div class="motion-band">
-  <div class="line"></div>
-  <div class="line"></div>
-</div>
-
 <main>
-  <div class="container">
 
-    <h1>Background & Philosophy</h1>
-
+  <div class="section">
+    <h3>Where This Comes From</h3>
     <p>
-      Owensonic Infinity was not formed as a startup.
-      It was assembled as a consequence.
+      Owensonic Infinity was not formed from branding exercises, investor decks,
+      or abstract planning. It was built from decades of hands-on experience,
+      repeated failure, correction, and refinement across mechanical systems,
+      industrial environments, and operational design.
     </p>
-
-    <p>
-      The company exists because decades of experience exposed structural
-      failures in how systems are designed, funded, staffed, and deployed.
-      This organization is the correction.
-    </p>
-
-    <div class="divider"></div>
-
-    <h2>Founder Background</h2>
-
-    <p>
-      The founder brings over <strong>35 years of hands-on experience</strong>
-      across systems design, aerospace-adjacent engineering, research and
-      development, mechanical fabrication, electronics, diagnostics,
-      and applied problem-solving.
-    </p>
-
-    <p>
-      This experience was not acquired through credential worship or
-      permission-based gatekeeping. It was earned through direct exposure
-      to real systems under real constraints.
-    </p>
-
-    <p>
-      Work ranged from advanced system concepts to hands-on builds,
-      troubleshooting, teardown analysis, redesign, and reassembly.
-      Many projects were developed independently, often in constrained
-      environments, including basement-level fabrication and testing.
-    </p>
-
-    <div class="divider"></div>
-
-    <h2>How the Work Was Done</h2>
-
-    <p>
-      Learning occurred where failure had consequences.
-      Designs were refined through repetition, breakage, correction,
-      and long-term observation.
-    </p>
-
-    <p>
-      Aerospace principles, control logic, redundancy strategies,
-      mechanical tolerances, and system survivability were studied
-      not as theory, but as necessity.
-    </p>
-
-    <p>
-      When institutional pathways failed to support innovation,
-      independent development continued anyway.
-    </p>
-
-    <div class="divider"></div>
-
-    <h2>Why Owensonic Infinity Exists</h2>
-
-    <p>
-      This company was not created out of thin air.
-      It is the consolidation of everything learned across decades
-      of design, failure, rebuilding, and refinement.
-    </p>
-
-    <p>
-      Owensonic Infinity exists to replace brittle systems with
-      resilient architectures, and shallow expertise with earned understanding.
-    </p>
-
-    <p>
-      It rejects artificial gates, degree worship, and permission slips.
-      Capability is demonstrated through output, not titles.
-    </p>
-
-    <div class="divider"></div>
-
-    <h2>Operating Philosophy</h2>
-
-    <p>
-      Systems must survive misuse.
-      People must be trusted with responsibility.
-      Knowledge must compound.
-    </p>
-
-    <p>
-      Anything else is theater.
-    </p>
-
-    <!-- SITEMAP -->
-    <section class="sitemap">
-      <h3>Site Map</h3>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="mission.html">Mission Statement</a></li>
-        <li><a href="rnd.html">Research & Development</a></li>
-        <li><a href="background.html">Background & Philosophy</a></li>
-        <li><a href="daisy.html">DAISY OS</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="consulting.html">Consulting</a></li>
-      </ul>
-    </section>
-
   </div>
+
+  <div class="block">
+    <h4>Basement-Built Reality</h4>
+    <p>
+      This work started the same way it always has: in basements, garages,
+      back rooms, and improvised workspaces. Clutches were rebuilt and redesigned
+      for motorized bike engine kits, pushing performance beyond stock limitations.
+      Parts were not accepted as-is. They were disassembled, analyzed, modified,
+      and reassembled until they behaved correctly under load.
+    </p>
+  </div>
+
+  <div class="block">
+    <h4>Industrial Systems and Steel Innovation</h4>
+    <p>
+      In steelmaking environments, existing sampling methods were inefficient,
+      dangerous, and expensive. Where the industry standard extracted only a
+      fraction of a pound of molten steel, an eight-pound sampler was designed
+      and built. It could be deployed directly into ladles or bottle cars,
+      eliminating the need for subcontractors and collapsing sampling costs
+      from thousands of dollars into a simple, repeatable, low-cost process.
+    </p>
+  </div>
+
+  <div class="block">
+    <h4>Aerospace Thinking, Applied Everywhere</h4>
+    <p>
+      Aerospace systems thinking was applied regardless of industry. Redundancy,
+      failure analysis, load paths, and lifecycle considerations were treated
+      as mandatory, not optional. Whether mechanical, operational, or organizational,
+      systems were expected to survive real-world conditions, not theoretical ones.
+    </p>
+  </div>
+
+  <div class="block">
+    <h4>Dissection as a Discipline</h4>
+    <p>
+      From childhood onward, every object was treated as a system waiting to be
+      understood. Toys were taken apart not out of boredom, but curiosity.
+      Understanding the internals was always more valuable than the surface.
+      That habit never stopped. Everything gets dissected until the truth is visible.
+    </p>
+  </div>
+
+  <div class="block">
+    <h4>Systems, Organizations, and Business Models</h4>
+    <p>
+      The same approach applies to companies. Systems management, operational design,
+      rapid problem isolation, and structural correction happen immediately.
+      Inefficiencies are obvious. You can walk into a room, run a finger across
+      a shelf, and know exactly where the rot is. Business models are adjusted
+      on the fly because stagnation is a design failure.
+    </p>
+  </div>
+
+  <div class="section">
+    <h3>Why Owensonic Infinity Exists</h3>
+    <p>
+      This company exists because most systems are built to survive just long enough,
+      extract value, and collapse gracefully. Owensonic Infinity was created to
+      replace that pattern with permanence, accountability, and evolution-driven design.
+      Nothing here was created out of thin air. It was earned.
+    </p>
+  </div>
+
 </main>
 
 <footer>
-  <div class="container">
-    <div>© Owensonic Infinity</div>
-    <div>allinsonicinfinity@gmail.com | 440-281-6270</div>
-    <div>Experience first. Proof over permission.</div>
+  <h5>Site Map</h5>
+  <div class="sitemap">
+    <a href="index.html">Home</a>
+    <a href="mission.html">Mission</a>
+    <a href="projects.html">Projects</a>
+    <a href="daisyos.html">DAISY OS</a>
+    <a href="rnd.html">R&D</a>
+    <a href="background.html">Background & Philosophy</a>
+    <a href="consulting.html">Consulting</a>
+    <a href="contact.html">Contact</a>
   </div>
 </footer>
 
