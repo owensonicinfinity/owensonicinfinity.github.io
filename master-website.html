@@ -3,191 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Owensonic Infinity | Master Website</title>
+<title>Owen Sonic Infinity</title>
 <style>
+    /* Global Styles */
     body {
         margin: 0;
-        font-family: 'Arial', sans-serif;
-        background: #0a0a2a;
-        color: #ffffff;
+        padding: 0;
+        background-color: #000000;
+        color: #00f0ff;
+        font-family: 'Arial Black', Gadget, sans-serif;
         overflow-x: hidden;
     }
-    header {
-        background: linear-gradient(90deg, #1e3cff, #00ffe4);
-        padding: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-    header h1 {
-        font-size: 1.8rem;
+    h1, h2, h3 {
         margin: 0;
-        color: #fff;
-        text-shadow: 0 0 10px #00ffe4;
     }
-    nav {
-        display: flex;
-        gap: 1rem;
-    }
-    nav a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        transition: 0.3s;
-    }
-    nav a:hover {
-        background: #00ffe4;
-        color: #000;
-    }
-    section {
-        padding: 3rem 2rem;
+
+    /* Header Styles */
+    #header {
         position: relative;
-        z-index: 1;
+        text-align: center;
+        padding: 30px 0 50px 0;
+        font-weight: bold;
     }
-    h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #00ffe4;
-        text-shadow: 0 0 8px #1e3cff;
-    }
-    p {
-        line-height: 1.6;
-        margin-bottom: 1rem;
-        color: #ccefff;
-    }
-    /* News Section */
-    .news {
-        background: #111133;
-        padding: 2rem;
-        border-radius: 10px;
-        margin-top: 2rem;
-    }
-    .news h3 {
-        color: #ffcc00;
-        margin-bottom: 1rem;
-    }
-    /* Placeholder Careers */
-    .careers {
-        background: #111111;
-        padding: 2rem;
-        border-radius: 10px;
-        margin-top: 2rem;
-        opacity: 0.7;
-    }
-    .careers h3 {
-        color: #ff00ff;
-    }
-    /* Animated globe */
-    .globe-container {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        pointer-events: none;
-        overflow: hidden;
-        z-index: 0;
+    #header h1 {
+        font-size: 4rem;
+        letter-spacing: 3px;
+        font-weight: 900;
+        display: inline-block;
+        position: relative;
     }
     .globe {
         position: absolute;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
-        border: 2px solid #00ffe4;
-        width: 50px;
-        height: 50px;
-        animation: spin 20s linear infinite;
+        border: 3px solid #ff00ff;
+        top: 0;
+        animation: orbit 10s linear infinite;
     }
-    @keyframes spin {
-        0% {transform: translate(0,0) rotate(0deg);}
-        50% {transform: translate(80vw, 80vh) rotate(180deg);}
-        100% {transform: translate(0,0) rotate(360deg);}
+    .globe-left { left: 10px; }
+    .globe-right { right: 10px; }
+
+    @keyframes orbit {
+        0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+        100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
     }
-    /* Button links for page anchors */
-    .page-section {
-        scroll-margin-top: 80px;
+
+    /* Mission Statement Styles */
+    #mission {
+        margin: 20px auto;
+        text-align: center;
+        font-size: 1.5rem;
+        max-width: 900px;
+        line-height: 1.6;
+    }
+    #mission a {
+        color: #ffcc00;
+        text-decoration: underline;
+        font-size: 1rem;
+    }
+
+    /* Section Styles */
+    section {
+        padding: 60px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    section h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    section p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    /* Sitemap Styles */
+    #sitemap {
+        position: fixed;
+        right: 10px;
+        top: 150px;
+        background: rgba(0,0,0,0.8);
+        padding: 20px;
+        border: 2px solid #00f0ff;
+        border-radius: 10px;
+    }
+    #sitemap a {
+        display: block;
+        color: #00f0ff;
+        margin: 10px 0;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    #sitemap a:hover {
+        color: #ff00ff;
+    }
+
+    /* Moving Elements */
+    .moving {
+        position: absolute;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: #ff6600;
+        animation: float 6s ease-in-out infinite alternate;
+    }
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-30px); }
     }
 </style>
 </head>
 <body>
 
-<div class="globe-container">
-    <div class="globe" style="top:10%; left:20%; width:60px; height:60px;"></div>
-    <div class="globe" style="top:50%; left:70%; width:40px; height:40px;"></div>
-    <div class="globe" style="top:80%; left:30%; width:50px; height:50px;"></div>
+<!-- Header -->
+<div id="header">
+    <div class="globe globe-left"></div>
+    <h1>Owen Sonic Infinity</h1>
+    <div class="globe globe-right"></div>
 </div>
 
-<header>
-    <h1>Owensonic Infinity</h1>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#mission">Mission</a>
-        <a href="#background">Background</a>
-        <a href="#rnd">R&D</a>
-        <a href="#projects">Projects</a>
-        <a href="#daisyos">Daisy OS</a>
-        <a href="#kickstarter">Kickstarter</a>
-        <a href="#news">News</a>
-        <a href="#careers">Careers</a>
-    </nav>
-</header>
+<!-- Mission Statement -->
+<div id="mission">
+    <p>
+        Our mission is to build technologies that are honest, actionable, and empowering. We combine decades of research, aerospace systems design, and engineering mastery into tools and solutions that actually work for real people. 
+        <a href="#mission-details">Read our full mission statement</a>
+    </p>
+</div>
 
-<section id="home" class="page-section">
-    <h2>Welcome to Owensonic Infinity</h2>
-    <p>Mastering innovation across aerospace, systems design, R&D, and beyond. Every project is a culmination of decades of experience and hands-on experimentation, designed to disrupt, improve, and redefine industries.</p>
+<!-- Sections -->
+<section id="mission-details">
+    <h2>Mission Statement</h2>
+    <p>
+        Owen Sonic Infinity exists to innovate responsibly. From autonomous operating systems to smart devices, we aim to solve real problems without compromise. Every tool, platform, and product is designed to enhance capability, remove friction, and protect intellectual property.
+    </p>
 </section>
 
-<section id="mission" class="page-section">
-    <h2>Mission</h2>
-    <p>To develop groundbreaking technologies with real-world impact, blending innovation, usability, and integrity. Motion, energy, and vision define the Owensonic ethos—moving forward, always advancing.</p>
-</section>
-
-<section id="background" class="page-section">
-    <h2>Background & Philosophy</h2>
-    <p>With 35 years of experience in aerospace, systems management, and hands-on R&D, every product and business model has been dissected, optimized, and rebuilt from the ground up. From high-performance minibike clutches to industrial steel samplers that revolutionized efficiency, history informs innovation.</p>
-    <p>We believe in testing, learning, and improving. Each design reflects a lifetime of trial, error, and mastery—turning failures into lessons and successes into the foundation for the next breakthrough.</p>
-</section>
-
-<section id="rnd" class="page-section">
-    <h2>Research & Development</h2>
-    <p>Our R&D is active, dynamic, and exploratory. We focus on creating new materials, developing advanced systems, and testing concepts that push the limits of possibility. Efficiency, practicality, and innovation are core pillars.</p>
-</section>
-
-<section id="projects" class="page-section">
+<section id="projects">
     <h2>Projects</h2>
-    <p>Current and upcoming projects include:</p>
-    <ul>
-        <li>Foundational R&D experiments</li>
-        <li>Kickstarter prep (coming soon)</li>
-        <li>Daisy OS standalone platform</li>
-        <li>Future smart glasses, earbuds, and wearable tech</li>
-        <li>New materials research to replace carbon fiber</li>
-        <li>Industrial and high-performance solutions</li>
-        <li>QR code & barcode operational alignment for businesses</li>
-    </ul>
+    <p><strong>Active:</strong> Daisy OS standalone, materials research, smart glasses (future), earbuds (future), phone development (future)</p>
+    <p><strong>Upcoming:</strong> Kickstarter launch, new industry standards for QR codes and UPCs, Daisy Master Shell integration.</p>
+    <p><strong>Historical:</strong> High-performance clutch for minibike engines, industrial steel mill sampler.</p>
 </section>
 
-<section id="daisyos" class="page-section">
-    <h2>Daisy OS & Daisy AI</h2>
-    <p>Daisy OS is a full operating system that comes with Daisy AI embedded. Always-on, autonomous, non-intrusive. Daisy AI orchestrates tools for media creation, organization, and management—without hoarding IP or exposing private data.</p>
-    <p>Users enjoy continuous assistance for daily tasks, automated workflows, and personalized responses. Updates are constant. Security and local context are paramount. Daisy OS exists to ensure no one is ignored, forgotten, or left without clarity.</p>
+<section id="news">
+    <h2>News & Updates</h2>
+    <p>Latest company updates, product progress, and announcements will be posted here.</p>
 </section>
 
-<section id="kickstarter" class="page-section">
-    <h2>Kickstarter Launch</h2>
-    <p>Preparation underway. Timeline and prototypes in progress. Our mission: deliver revolutionary products while maintaining transparency and trust. Failure policies, risk disclosures, and previous R&D history are fully documented to ensure backer confidence.</p>
+<section id="careers">
+    <h2>Careers</h2>
+    <p>Coming soon. Positions and opportunities will be added as the company expands.</p>
 </section>
 
-<section id="news" class="page-section news">
-    <h3>News & Updates</h3>
-    <p>All current announcements, progress updates, and company milestones will appear here. Stay tuned for active development news and R&D breakthroughs.</p>
+<section id="daisyos">
+    <h2>Daisy OS</h2>
+    <p>Daisy OS is our always-on, autonomous operating system that integrates Daisy AI. Daisy AI is embedded within Daisy OS to provide context-aware assistance, task orchestration, and protection of intellectual property. Daisy OS is designed to work seamlessly with biometrics, media creation tools, organization systems, and more, ensuring that user data remains local and secure.</p>
 </section>
 
-<section id="careers" class="page-section careers">
-    <h3>Careers</h3>
-    <p>Coming soon. Future openings and opportunities will be listed here when the program becomes active.</p>
-</section>
+<!-- Sitemap -->
+<div id="sitemap">
+    <a href="#header">Home</a>
+    <a href="#mission-details">Mission Statement</a>
+    <a href="#projects">Projects</a>
+    <a href="#news">News & Updates</a>
+    <a href="#careers">Careers</a>
+    <a href="#daisyos">Daisy OS</a>
+</div>
+
+<!-- Moving elements for visual effect -->
+<div class="moving" style="top:200px; left:50px;"></div>
+<div class="moving" style="top:400px; left:200px;"></div>
+<div class="moving" style="top:600px; left:800px;"></div>
 
 </body>
 </html>
