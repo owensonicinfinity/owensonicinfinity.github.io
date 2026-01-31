@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Background & Philosophy | Owensonic Infinity</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #000000;
+      --neon: #00e5ff;
+      --accent: #9d7cff;
+      --pulse: #00ffa6;
+      --text: #d9d9d9;
+      --muted: #7a7a7a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(0,229,255,0.35);
+      padding: 28px 24px 20px;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .company-name {
+      font-size: 2.3rem;
+      color: var(--neon);
+      letter-spacing: 0.05em;
+    }
+
+    .mission-link {
+      font-size: 0.85rem;
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .mission-link a {
+      color: var(--neon);
+      text-decoration: none;
+    }
+
+    /* SUBTLE MOTION STRIP */
+    .motion-band {
+      position: relative;
+      height: 140px;
+      overflow: hidden;
+      margin: 60px 0;
+    }
+
+    .line {
+      position: absolute;
+      top: 50%;
+      left: -30%;
+      width: 160%;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--neon),
+        transparent
+      );
+      animation: drift 18s linear infinite;
+      opacity: 0.6;
+    }
+
+    .line:nth-child(2) {
+      top: 62%;
+      animation-duration: 26s;
+      opacity: 0.3;
+    }
+
+    @keyframes drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(30%); }
+    }
+
+    main {
+      padding: 0 24px 120px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: var(--neon);
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-top: 60px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+      line-height: 1.7;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 80px 0;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--neon),
+        transparent
+      );
+    }
+
+    /* SITEMAP */
+    .sitemap {
+      border-top: 1px solid rgba(0,229,255,0.35);
+      margin-top: 120px;
+      padding-top: 40px;
+    }
+
+    .sitemap h3 {
+      color: var(--neon);
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+    }
+
+    .sitemap ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .sitemap li {
+      font-size: 0.9rem;
+    }
+
+    .sitemap a {
+      color: var(--text);
+      text-decoration: none;
+      border-left: 2px solid var(--neon);
+      padding-left: 10px;
+    }
+
+    .sitemap a:hover {
+      color: var(--neon);
+    }
+
+    footer {
+      border-top: 1px solid rgba(0,229,255,0.35);
+      padding: 40px 24px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="company-name">Owensonic Infinity</div>
+    <div class="mission-link">
+      <a href="mission.html">Mission Statement · How We Operate</a>
+    </div>
+  </div>
+</header>
+
+<div class="motion-band">
+  <div class="line"></div>
+  <div class="line"></div>
+</div>
+
+<main>
+  <div class="container">
+
+    <h1>Background & Philosophy</h1>
+
+    <p>
+      Owensonic Infinity was not formed as a startup.
+      It was assembled as a consequence.
+    </p>
+
+    <p>
+      The company exists because decades of experience exposed structural
+      failures in how systems are designed, funded, staffed, and deployed.
+      This organization is the correction.
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>Founder Background</h2>
+
+    <p>
+      The founder brings over <strong>35 years of hands-on experience</strong>
+      across systems design, aerospace-adjacent engineering, research and
+      development, mechanical fabrication, electronics, diagnostics,
+      and applied problem-solving.
+    </p>
+
+    <p>
+      This experience was not acquired through credential worship or
+      permission-based gatekeeping. It was earned through direct exposure
+      to real systems under real constraints.
+    </p>
+
+    <p>
+      Work ranged from advanced system concepts to hands-on builds,
+      troubleshooting, teardown analysis, redesign, and reassembly.
+      Many projects were developed independently, often in constrained
+      environments, including basement-level fabrication and testing.
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>How the Work Was Done</h2>
+
+    <p>
+      Learning occurred where failure had consequences.
+      Designs were refined through repetition, breakage, correction,
+      and long-term observation.
+    </p>
+
+    <p>
+      Aerospace principles, control logic, redundancy strategies,
+      mechanical tolerances, and system survivability were studied
+      not as theory, but as necessity.
+    </p>
+
+    <p>
+      When institutional pathways failed to support innovation,
+      independent development continued anyway.
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>Why Owensonic Infinity Exists</h2>
+
+    <p>
+      This company was not created out of thin air.
+      It is the consolidation of everything learned across decades
+      of design, failure, rebuilding, and refinement.
+    </p>
+
+    <p>
+      Owensonic Infinity exists to replace brittle systems with
+      resilient architectures, and shallow expertise with earned understanding.
+    </p>
+
+    <p>
+      It rejects artificial gates, degree worship, and permission slips.
+      Capability is demonstrated through output, not titles.
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>Operating Philosophy</h2>
+
+    <p>
+      Systems must survive misuse.
+      People must be trusted with responsibility.
+      Knowledge must compound.
+    </p>
+
+    <p>
+      Anything else is theater.
+    </p>
+
+    <!-- SITEMAP -->
+    <section class="sitemap">
+      <h3>Site Map</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html">Mission Statement</a></li>
+        <li><a href="rnd.html">Research & Development</a></li>
+        <li><a href="background.html">Background & Philosophy</a></li>
+        <li><a href="daisy.html">DAISY OS</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="consulting.html">Consulting</a></li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div>© Owensonic Infinity</div>
+    <div>allinsonicinfinity@gmail.com | 440-281-6270</div>
+    <div>Experience first. Proof over permission.</div>
+  </div>
+</footer>
+
+</body>
+</html>
