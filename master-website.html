@@ -1,43 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OwenSonicInfinity</title>
-
-<!-- Fonts & Styles -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family: 'Roboto', sans-serif; background:#111; color:#fff; overflow-x:hidden;}
-a {color:#ffcc00; text-decoration:none;}
-a:hover {color:#fff;}
-header {display:flex; justify-content:space-between; align-items:center; padding:20px; background:#000; position:sticky; top:0; z-index:1000;}
-.logo {font-weight:900; font-size:2.5em; color:#ffcc00; letter-spacing:2px;}
-nav a {margin-left:25px; font-weight:700; font-size:1em;}
-nav a:hover {text-decoration:underline;}
-section {padding:100px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;}
-h1, h2 {margin-bottom:20px;}
-h1 {font-size:3em; font-weight:900; color:#ffcc00;}
-h2 {font-size:2.5em; font-weight:700; color:#fff;}
-p {max-width:900px; font-size:1.1em; line-height:1.6em; text-align:center;}
-.btn {padding:15px 40px; background:#ffcc00; color:#000; font-weight:700; border:none; cursor:pointer; margin:10px; transition:0.3s;}
-.btn:hover {background:#fff; color:#000;}
-#news {background:#222; width:100%; text-align:center; padding:50px 20px;}
-.news-item {margin:20px 0; padding:15px; background:#333; border-radius:10px; transition:0.3s;}
-.news-item:hover {background:#444;}
-#careers {background:#111; padding:80px 20px; text-align:center;}
-.fade-in {opacity:0; transform:translateY(30px); transition: all 0.7s ease-out;}
-.fade-in.visible {opacity:1; transform:translateY(0);}
-footer {padding:50px; text-align:center; background:#000;}
-canvas {display:block; position:absolute; top:0; left:0; z-index:-1;}
-</style>
-</head>
-<body>
-
 <!-- Header -->
 <header>
-  <div id="globeContainer"></div>
   <div class="logo">OwenSonicInfinity</div>
   <nav>
     <a href="#mission">Mission</a>
@@ -48,108 +10,76 @@ canvas {display:block; position:absolute; top:0; left:0; z-index:-1;}
   </nav>
 </header>
 
-<!-- Mission Section -->
-<section id="mission" class="fade-in">
-  <h1>Our Mission</h1>
-  <p>OwenSonicInfinity is dedicated to pushing the boundaries of innovation across technology, AI, and engineering. We integrate decades of research into products that redefine possibilities. Our mission is simple: develop high-performance solutions that inspire, empower, and revolutionize the way people interact with technology.</p>
-</section>
+<!-- Globe Container -->
+<div id="globeContainer" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;"></div>
 
-<!-- Projects Section -->
-<section id="projects" class="fade-in">
-  <h1>Active Projects</h1>
-  <p>From Daisy OS and smart systems to next-gen R&D innovations, every project is a culmination of experience, creativity, and precision. Stay tuned for new releases and milestones as we redefine what's possible in technology.</p>
-  <button class="btn" onclick="window.location.href='projects.html'">View All Projects</button>
-</section>
-
-<!-- Daisy OS Section -->
-<section id="daisyos" class="fade-in">
-  <h1>Daisy OS</h1>
-  <p>Daisy OS is the intelligent ecosystem powering all OwenSonicInfinity devices. Complete with built-in Daisy AI, it adapts, learns, and integrates across all platforms for seamless operation. From smart homes to advanced R&D systems, Daisy OS is the foundation of our technology empire.</p>
-  <button class="btn" onclick="window.location.href='daisyos.html'">Learn More</button>
-</section>
-
-<!-- News & Updates -->
-<section id="news" class="fade-in">
-  <h2>News & Updates</h2>
-  <div class="news-item">
-    <h3>January 2026 - Daisy OS Update</h3>
-    <p>New dynamic scroll and interactive features deployed across the master website. Experience smoother transitions, fade-ins, and live updates.</p>
-  </div>
-  <div class="news-item">
-    <h3>January 2026 - Kickstarter Prep</h3>
-    <p>Our Kickstarter launch materials are now prepared, with all disclaimers, project history, and research fully documented for public transparency.</p>
-  </div>
-</section>
-
-<!-- Careers Placeholder -->
-<section id="careers" class="fade-in">
-  <h2>Careers</h2>
-  <p>Coming Soon: Join the OwenSonicInfinity team and help shape the future of advanced technology and AI. Opportunities will be listed here as they become available.</p>
-</section>
-
-<!-- Footer -->
-<footer class="fade-in">
-  <p>&copy; 2026 OwenSonicInfinity. All Rights Reserved.</p>
-  <p>Email: OwenSonicInfinity</p>
-</footer>
-
-<!-- Three.js for 3D Earth -->
+<!-- Three.js Globe -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/examples/js/controls/OrbitControls.js"></script>
 <script>
-let scene = new THREE.Scene();
-let camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 2000);
-camera.position.z = 300;
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 2000);
+camera.position.set(0, 100, 250);
 
-let renderer = new THREE.WebGLRenderer({alpha:true, antialias:true});
+const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+document.getElementById('globeContainer').appendChild(renderer.domElement);
 
-// Earth
-let earthGeometry = new THREE.SphereGeometry(50, 64, 64);
-let earthTexture = new THREE.TextureLoader().load('https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
-let earthMaterial = new THREE.MeshPhongMaterial({map: earthTexture});
-let earth = new THREE.Mesh(earthGeometry, earthMaterial);
+// Load realistic Earth texture
+const earthGeometry = new THREE.SphereGeometry(50, 128, 128);
+const earthTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/datasets/planet-earth-globe/main/earth_daymap.jpg'); 
+const earthMaterial = new THREE.MeshPhongMaterial({ map: earthTexture });
+const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 scene.add(earth);
 
-// Satellites
-let satellites = [];
-let beams = [];
-function addSatellite(radius, speed){
-  let satellite = new THREE.Mesh(new THREE.SphereGeometry(1.5,8,8), new THREE.MeshBasicMaterial({color:0xffcc00}));
-  let angle = Math.random() * Math.PI * 2;
-  satellite.userData = {angle, radius, speed};
+// Satellites with two rings
+const satellites = [];
+const beams = [];
+function addSatellite(radius, speed) {
+  const satellite = new THREE.Mesh(
+    new THREE.SphereGeometry(1.5, 8, 8),
+    new THREE.MeshStandardMaterial({color: 0xffcc00})
+  );
+  const angle = Math.random() * Math.PI * 2;
+  satellite.userData = { angle, radius, speed };
   satellites.push(satellite);
   scene.add(satellite);
 
-  let beam = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({color:0x00ffff}));
+  const beamMaterial = new THREE.LineBasicMaterial({color: 0x00ffff});
+  const beam = new THREE.Line(new THREE.BufferGeometry(), beamMaterial);
   beams.push({beam, satellite});
   scene.add(beam);
 }
-for(let i=0;i<12;i++){addSatellite(80 + Math.random()*10,0.002 + Math.random()*0.002);}
-for(let i=0;i<6;i++){addSatellite(60 + Math.random()*10,0.002 + Math.random()*0.002);}
+
+// Outer ring
+for(let i=0;i<12;i++){ addSatellite(80 + Math.random()*10, 0.002 + Math.random()*0.002); }
+// Inner ring
+for(let i=0;i<6;i++){ addSatellite(60 + Math.random()*10, 0.003 + Math.random()*0.002); }
 
 // Lights
-let light = new THREE.PointLight(0xffffff,1);
+const light = new THREE.PointLight(0xffffff,1);
 light.position.set(200,200,200);
 scene.add(light);
 scene.add(new THREE.AmbientLight(0x555555));
 
-function animate(){
+// Animate
+function animate() {
   requestAnimationFrame(animate);
   earth.rotation.y += 0.001;
+
   satellites.forEach((sat,i)=>{
     sat.userData.angle += sat.userData.speed;
     sat.position.x = Math.cos(sat.userData.angle)*sat.userData.radius;
     sat.position.z = Math.sin(sat.userData.angle)*sat.userData.radius;
     sat.position.y = Math.sin(sat.userData.angle*2)*5;
 
-    // Beam update
-    let beamData = beams[i];
-    let beamGeo = new THREE.BufferGeometry().setFromPoints([sat.position, earth.position]);
+    const beamData = beams[i];
+    const start = sat.position.clone();
+    const end = earth.position.clone();
     beamData.beam.geometry.dispose();
-    beamData.beam.geometry = beamGeo;
+    beamData.beam.geometry = new THREE.BufferGeometry().setFromPoints([start,end]);
   });
+
   renderer.render(scene, camera);
 }
 animate();
@@ -160,16 +90,15 @@ window.addEventListener('resize', ()=>{
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
-// Fade-in sections
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = {threshold:0.3};
-const appearOnScroll = new IntersectionObserver(function(entries, observer){
-  entries.forEach(entry => {
-    if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target);}
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
 </script>
-</body>
-</html>
+
+<style>
+/* Thicker, bold logo */
+.logo {
+  font-weight: 900;
+  font-size: 3em;
+  color: #ffcc00;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px #000;
+}
+</style>
